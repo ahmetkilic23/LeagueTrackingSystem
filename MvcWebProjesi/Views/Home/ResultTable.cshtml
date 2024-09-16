@@ -1,0 +1,50 @@
+﻿@using MvcWebProjesi.Models
+@model List<LogoResultViewModel>
+@{
+    ViewBag.Title = "ResultTable";
+}
+
+<main role="main">
+    <!-- TOP SECTION -->
+    <header class="grid">
+        <div class="s-12 padding-2x">
+            <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">Result Table</h1>
+        </div>
+    </header>
+    <!-- SECTION 1 -->
+    <section class="grid margin-bottom-20">
+        <!-- Contact Information-->
+        <div class="s-12 padding-2x background-white text-center">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Position</th>
+                        <th scope="col">Team</th>
+                        <th scope="col">Won</th>
+                        <th scope="col">Drawn</th>
+                        <th scope="col">Lost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.Count</th>
+                            <th style="display:flex;">
+                                <a href="/Home/@item.TeamName">
+                                    <img style="width:85px; height:110px;" src="@item.Logo">
+                                </a>
+                                <span style="margin-top:40px; margin-left:10px;">@item.TeamName</span>
+                            </th>
+                            <td>@item.Win</td>
+                            <td>@item.Draw</td>
+                            <td>@item.Lose</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+    </section>
+</main>

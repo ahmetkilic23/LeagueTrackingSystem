@@ -1,0 +1,41 @@
+﻿@using MvcWebProjesi.Models
+@model List<TeamScoreViewModel>
+@{
+    ViewBag.Title = "Results";
+}
+
+<!-- MAIN -->
+<main role="main">
+    <!-- TOP SECTION -->
+    <header class="grid">
+        <div class="s-12 padding-2x">
+            <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">Results Page</h1>
+        </div>
+    </header>
+    <!-- SECTION 1 -->
+    <section class="grid margin-bottom-20">
+        <!-- Contact Information-->
+        <style>
+            span {
+                color: blue;
+                font-weight: bold;
+            }
+        </style>
+        <div class="s-12 padding-2x background-white text-center" style="display:flex; justify-content:space-evenly">
+            @foreach (var item in Model)
+            {
+                <div class="box" style="border: 1px solid black; width: 350px; height: 300px; margin:10px; background-image:url('/images/card_bg.jpg'); background-size: 300% 300%;">
+                    <div style="color:white; font-size:25px; margin-top:5%;">
+                        <div style="margin-bottom:10px;">Week @item.Week</div>
+                        <div style="display:flex;"><a href="/Home/@item.HomeTeamName"><img style="width:55px; height:70px;" src="@item.HomeLogo"></a><div style="margin-top:20px;">@item.HomeTeamName</div></div>
+                        <br />@item.Score
+                        <br />
+                        <div style="margin-top:10px; display:flex;"><a href="/Home/@item.AwayTeamName"><img style="width:55px; height:70px;" src="@item.AwayLogo"></a><div style="margin-top:20px;">@item.AwayTeamName</div></div>
+                    </div>
+                    <br />
+                </div>
+            }
+        </div>
+    </section>
+</main>
+

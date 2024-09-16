@@ -1,0 +1,49 @@
+﻿@using MvcWebProjesi.Models;
+@model  List<PlayerLogoViewModel>
+
+@{
+    ViewBag.Title = "Players";
+}
+
+<main role="main">
+    <!-- TOP SECTION -->
+    <header class="grid">
+        <div class="s-12 padding-2x">
+            <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">Players</h1>
+        </div>
+    </header>
+
+    <!-- SECTION 1 -->
+    <section class="grid margin-bottom-20">
+        <!-- Contact Information-->
+        <div class="s-12 padding-2x background-white text-center">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">TEAMNAME</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Player</th>
+                        <th scope="col">Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.Player.Id</th> 
+                            <td>@item.TeamName</td>
+                            <td>@item.Player.PlayerName</td>
+                            <td>@item.Player.Country</td>
+                            <td><a href="/Player/Player_@item.Player.Id"><img src="@item.Player.Image"></a></td>
+                            <td><a href="/Home/@item.TeamName"><img style="width:85px; height:110px;" src="@item.Logo"></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+    </section>
+</main>
